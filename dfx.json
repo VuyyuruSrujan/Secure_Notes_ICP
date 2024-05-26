@@ -1,0 +1,37 @@
+{
+  "canisters": {
+    "Secure_Notes_backend": {
+      "main": "src/Secure_Notes_backend/main.mo",
+      "type": "motoko"
+    },
+    "Secure_Notes_frontend": {
+      "dependencies": [
+        "Secure_Notes_backend"
+      ],
+      "source": [
+        "src/Secure_Notes_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "Secure_Notes_frontend"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
