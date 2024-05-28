@@ -56,7 +56,7 @@ export default function SignUp() {
             <button onClick={handleConnect} id='ConnectBtn'>Connect</button>
          </div>
          <div>
-         <ul>
+         <ul id='matter'>
           <li> <b>Connect to Internet Identity</b> and write your notes <br /> Secure your data by using this </li><br /><br />
           
           </ul>
