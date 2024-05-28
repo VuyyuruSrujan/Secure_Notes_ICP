@@ -35,3 +35,130 @@ button[type="submit"] {
 #greeting:empty {
   display: none;
 }
+// #InputData{
+//   border: 2px solid blue;
+//   box-shadow: 5px 5px black;
+//   width: 400px;
+//   padding: 20px;
+//   // margin-left: 950px;
+//   // margin-top: 100px;
+//   font-size: 20px;
+// }
+#DetSubmitBtn{
+  border: 2px solid blue;
+  box-shadow: 5px 5px black;
+  height: 30px;
+  width: 100px;
+  margin-left: 120px;
+}
+body{
+  border: 2px solid white;
+  height: 1000px;
+  position: relative;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure body takes up at least the viewport height */
+  margin: 0;
+}
+
+#contentBox{
+  height: 200px;
+  width: 300px;
+  margin-left: 100px;
+ 
+}
+#ContText{
+  position: absolute;
+}
+#TitlesBox{
+  border: 5px solid wheat;
+  border-radius: 20px;
+  // height: 60px;
+  font-size: 30px;
+  width: 600px;
+  padding: 14px;
+  padding-left: 30px;
+  padding-top:20px ;
+}
+
+/* Center the form and blur the background */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1001;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.main-content.blur {
+  filter: blur(5px);
+}
+#AddNotedBtn{
+  border: 5px solid blue;
+  box-shadow: 5px 5px black;
+  height: 45px;
+  width: 200px;
+  position: absolute;
+  top: 60px;
+  right: 45px;
+}
+#titles{
+position: absolute;
+top: 60px;
+left: 30px;
+}
+
+#Discontent{
+  position: absolute;
+  right: 500px;
+  top: 200px;
+}
+h4{
+  position: absolute;
+  top: -60px;
+  left: -45px;
+}
+#disTit{
+    color: blue;
+}
+#ContentText{
+  position: absolute;
+  font-size: 35px;
+  left: -45px;
+  top: 60px;
+}
+#rendCont{
+  position: absolute;
+  top: 120px;
+  width: 700px;
+ border: 2px solid white;
+ width: 600px;
+ height: 600px;
+
+}
+#dataTime{
+  font-size: 20px;
+  margin-left: 190px;
+}

@@ -1,7 +1,6 @@
 import Nat64 "mo:base/Nat64";
 import Array "mo:base/Array";
 import Text "mo:base/Text";
-import Blob "mo:base/Blob";
 import Principal "mo:base/Principal";
 
 actor {
@@ -12,7 +11,7 @@ actor {
     Id : Nat64;
     Title: Text;
     Content: Text;
-    image: Blob;
+    DateAndTime: Text;
     creator: Principal;
   };
 
@@ -27,7 +26,7 @@ actor {
       Id = currentId;
       Title = details.Title;
       Content = details.Content;
-      image = details.image;
+      DateAndTime = details.DateAndTime;
       creator = caller;
     };
     data := Array.append<Data>(data, [newData]);

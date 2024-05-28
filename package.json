@@ -14,5 +14,9 @@
   "type": "module",
   "workspaces": [
     "src/Secure_Notes_frontend"
-  ]
+  ],
+  "dependencies": {
+    "@dfinity/agent": "^1.3.0",
+    "@dfinity/auth-client": "^1.3.0"
+  }
 }
