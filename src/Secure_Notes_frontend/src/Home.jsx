@@ -1,6 +1,9 @@
 
 import { useState } from "react";
 import { Secure_Notes_backend } from 'declarations/Secure_Notes_backend';
+import Titles from "./Titles";
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 
 function Home() {
     const [showAddNote, setShowAddNote] = useState(false);
@@ -11,6 +14,8 @@ function Home() {
         var DateAndTime = new Date().toString();
         var caller = await Secure_Notes_backend.GetPrincipal();
          console.log("DateAndTime", DateAndTime);
+
+        if(title!= "" && content!= "" && DateAndTime!=""){
         var result = {
             Id: 0,
             Title: title,
@@ -23,8 +28,30 @@ function Home() {
 
         var gettingById = await Secure_Notes_backend.getDataById(send);
         console.log("getting by id", gettingById);
-    };
+        toast.success('successfully inserted', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
 
+    }else{
+        toast.warn('fill all the data.', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+         });
+    }
+};
     const toggleAddNote = () => {
         setShowAddNote(!showAddNote);
         if (!showAddNote) {
@@ -62,6 +89,21 @@ function Home() {
                     </div>
                 </div>
             }
+            <Titles />
+
+            <ToastContainer
+            position="top-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
+         />
+
         </div>
     );
 }

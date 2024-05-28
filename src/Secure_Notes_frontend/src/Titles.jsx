@@ -37,7 +37,7 @@ function Titles(){
               {selectedItem && (
                 <div id="Discontent">
                   <h2><h4>Title:</h4><p id="disTit">{selectedItem.Title}</p></h2>
-                  <p id="disCon"><p id="ContentText">Content:</p><p id="rendCont">{selectedItem.Content}</p></p>
+                  <p><p id="ContentText">Content:</p><p id="rendCont">{selectedItem.Content}</p></p>
                   {/* {selectedItem.image && selectedItem.image.length > 0 && (
                   <img src={`data:image/*;base64,${btoa(String.fromCharCode(...selectedItem.image))}`} alt="Content" />
                   )} */}

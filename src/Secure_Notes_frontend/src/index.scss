@@ -130,35 +130,55 @@ top: 60px;
 left: 30px;
 }
 
-#Discontent{
-  position: absolute;
-  right: 500px;
-  top: 200px;
-}
-h4{
-  position: absolute;
-  top: -60px;
-  left: -45px;
-}
-#disTit{
-    color: blue;
-}
-#ContentText{
-  position: absolute;
-  font-size: 35px;
-  left: -45px;
-  top: 60px;
-}
-#rendCont{
-  position: absolute;
-  top: 120px;
-  width: 700px;
- border: 2px solid white;
- width: 600px;
- height: 600px;
+// #Discontent{
+//   position: absolute;
+//   right: 500px;
+//   top: 200px;
+//   border: 2px solid black;
+//   width: 500px;
+//   padding: 2px;
+// }
+// h4{
+//   position: absolute;
+//   top: -60px;
+//   left: -45px;
+// }
+// #disTit{
+//     color: blue;
+//     // border: 2px solid white;
+//     padding :6px;
+// }
+// #ContentText{
+//   position: absolute;
+//   font-size: 35px;
+//   left: -45px;
+//   top: 60px;
+// }
+// #rendCont{
+//   position: absolute;
+//   top: 120px;
+//   width: 700px;
+//  border: 2px solid white;
+//  width: 600px;
+//  height: 600px;
 
-}
+// }
 #dataTime{
   font-size: 20px;
-  margin-left: 190px;
+  margin-left:40px;
+}
+#Discontent {
+  border: 2px solid black;
+  width: 500px;
+  padding: 10px;
+  word-wrap: break-word; 
+  word-break: break-all; 
+  overflow-wrap: break-word; 
+  box-sizing: border-box;
+  display: block;
+  margin-left: 750px;
+  margin-top: -250px;
+}
+#disTit{
+  color: blue;
 }
