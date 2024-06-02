@@ -17,17 +17,17 @@ actor {
 
   var data: [Data] = [];
 
-  public shared ({ caller }) func GetPrincipal() : async Principal {
-    return caller;
-  };
+  // public shared ({ caller }) func GetPrincipal() : async Principal {
+  //   return caller;
+  // };
 
-  public shared ({ caller }) func InsertData(details: Data) : async Nat64 {
+  public shared func InsertData(details: Data) : async Nat64 {
     let newData = {
       Id = currentId;
       Title = details.Title;
       Content = details.Content;
       DateAndTime = details.DateAndTime;
-      creator = caller;
+      creator = details.creator;
     };
     data := Array.append<Data>(data, [newData]);
     currentId += 1;

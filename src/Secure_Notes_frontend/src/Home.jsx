@@ -1,20 +1,69 @@
 
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { Secure_Notes_backend } from 'declarations/Secure_Notes_backend';
 import Titles from "./Titles";
 import { toast, ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { AuthClient } from "@dfinity/auth-client";
 
 function Home() {
     const [showAddNote, setShowAddNote] = useState(false);
+
+    const [identity, setIdentity] = useState(null);
+
+    async function handleConnect() {
+        const authClient = await AuthClient.create();
+        if (identity !== null) {
+            authClient.logout();
+            setIdentity(null);
+            toast.info('Logged Out Successfully.', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        } else {
+            authClient.login({
+                maxTimeToLive: BigInt(7 * 24 * 60 * 60 * 1000 * 1000 * 1000),
+                identityProvider: "https://identity.ic0.app/#authorize",
+                onSuccess: async () => {
+                    setIdentity(await authClient.getIdentity());
+                    toast.success('Logged In Successfully.', {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                },
+            });
+        }
+    }
+
+    useEffect(() => {
+        async function init() {
+            const authClient = await AuthClient.create();
+            if (await authClient.isAuthenticated()) {
+                setIdentity(await authClient.getIdentity());
+            }
+        }
+        init();
+    }, []);
 
     async function SubmitCont() {
         var title = document.getElementById('title').value;
         var content = document.getElementById('contentBox').value;
         var DateAndTime = new Date().toString();
-        var caller = await Secure_Notes_backend.GetPrincipal();
-         console.log("DateAndTime", DateAndTime);
-
+        // console.log("DateAndTime", DateAndTime);
+        // var caller = await Secure_Notes_backend.GetPrincipal();
+           var caller = identity.getPrincipal();
         if(title!= "" && content!= "" && DateAndTime!=""){
         var result = {
             Id: 0,
@@ -71,7 +120,7 @@ function Home() {
     return (
         <div>
             <div className={`main-content ${showAddNote ? 'blur' : ''}`}>
-                <button onClick={toggleAddNote} id="AddNotedBtn">Add New Note +</button>
+                <button onClick={toggleAddNote} id="AddNotedBtn">Add New Note +</button><br /><br/>
             </div>
             {showAddNote &&
                 <div className="modal" onClick={handleCloseModal}>

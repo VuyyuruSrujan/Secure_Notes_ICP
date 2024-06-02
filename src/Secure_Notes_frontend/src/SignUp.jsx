@@ -25,7 +25,6 @@ export default function SignUp() {
                progress: undefined,
                theme: "light",
             });
-            // Navigate to '/First' when successfully logged in
             navigate('/Home');
          },
       });
